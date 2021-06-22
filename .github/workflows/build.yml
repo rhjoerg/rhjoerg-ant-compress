@@ -6,26 +6,25 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Create build number
-        id: buildnumber
-        run: echo "::set-output name=buildnumber::$(date +'%Y%m%d%H%M')"
       - name: Ckeckout
         uses: actions/checkout@v2
+
       - name: Set up JDK 16
         uses: actions/setup-java@v2
         with:
           java-version: '16'
           distribution: 'adopt'
+
       - name: Cache repository
         uses: actions/cache@v2
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven-
+
       - name: Build with Ant
         run: ant -noinput
-        env:
-          BUILDNUMBER: ${{ steps.buildnumber.outputs.buildnumber }}
+
       - name: Release
         uses: marvinpinto/action-automatic-releases@latest
         with:
@@ -34,4 +33,4 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            rhjoerg-ant-compress-plugin/target/*.jar
+            rhjoerg-ant-compress-plugin/target/rhjoerg-ant-compress*.jar

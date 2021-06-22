@@ -16,7 +16,7 @@
     		<arg line="install" />
     		<arg line="-s" />
     		<arg line="settings.xml" />
-    		<arg line="-DforceContextQualifier=${env.BUILDNUMBER}" />
+    		<arg line="-DforceContextQualifier=${buildnumber}" />
     	</exec>
     	
     </target>
