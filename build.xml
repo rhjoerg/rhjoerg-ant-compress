@@ -9,7 +9,7 @@
 	
     <target name="build" depends="maven">
     	
-    	<echo level="info" message="${buildnumber}" />
+    	<echo level="info" message="${env.BUILDNUMBER}" />
     	
     	<exec executable="cmd.exe" >
     		<arg line="/c" />
@@ -18,7 +18,7 @@
     		<arg line="install" />
     		<arg line="-s" />
     		<arg line="settings.xml" />
-    		<arg line="-DforceContextQualifier=${buildnumber}" />
+    		<arg line="-DforceContextQualifier=${env.BUILDNUMBER}" />
     	</exec>
     	
     </target>
