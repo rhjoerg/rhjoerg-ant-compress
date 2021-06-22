@@ -9,8 +9,6 @@
 	
     <target name="build" depends="maven">
     	
-    	<echo level="info" message="${env.BUILDNUMBER}" />
-    	
     	<exec executable="cmd.exe" >
     		<arg line="/c" />
     		<arg line="maven\bin\mvn.cmd" />
