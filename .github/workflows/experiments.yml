@@ -7,6 +7,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Create Build Number
-        run: echo "BUILDNUMBER::$(date +'%YYYY-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+        id: buildnumber
+        run: echo "::set-output name=buildnumber::$(date +'%Y-%m-%d')"
       - name: Use Build Number
-        run: echo $BUILDNUMBER
+        run: echo ${{ steps.buildnumber.outputs.buildnumber }}
