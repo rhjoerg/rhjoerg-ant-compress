@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="rhjoerg-ant-compress-parent" default="build">
+	
+	<available property="maven.exists" file="maven/bin/mvn.cmd"/>
+	
+    <target name="build" depends="maven">
+    	
+    	<exec executable="cmd.exe">
+    		<arg line="/c" />
+    		<arg line="maven\bin\mvn.cmd" />
+    		<arg line="clean" />
+    		<arg line="package" />
+    	</exec>
+    	
+    </target>
+	
+	<target name="maven" unless="maven.exists">
+		
+		<mkdir dir="maven"/>
+		
+		<get usetimestamp="true"
+				src="https://downloads.apache.org/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.zip"
+				dest="maven/maven.zip" />
+		
+		<unzip dest="maven" src="maven/maven.zip">
+			<cutdirsmapper dirs="1"/>
+		</unzip>
+	</target>
+
+</project>
