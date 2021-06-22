@@ -8,6 +8,6 @@ jobs:
     steps:
       - name: Create Build Number
         id: buildnumber
-        run: echo "::set-output name=buildnumber::$(date +'%Y-%m-%d')"
+        run: echo "::set-output name=buildnumber::$(date +'%Y%m%d%H%M')"
       - name: Use Build Number
         run: echo ${{ steps.buildnumber.outputs.buildnumber }}

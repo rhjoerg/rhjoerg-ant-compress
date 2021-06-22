@@ -6,6 +6,9 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+      - name: Create build number
+        id: buildnumber
+        run: echo "::set-output name=buildnumber::$(date +'%Y%m%d')"
       - name: Ckeckout
         uses: actions/checkout@v2
       - name: Set up JDK 16
