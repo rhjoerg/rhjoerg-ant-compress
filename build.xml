@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="rhjoerg-ant-compress-parent" default="build">
 	
-	<tstamp />
+	<tstamp>
+		<format property="buildnumber" pattern="yyyyMMddHHmm" timezone="UTC" />
+	</tstamp>
 	
 	<available property="maven.exists" file="maven/bin/mvn.cmd"/>
 	
     <target name="build" depends="maven">
+    	
+    	<echo level="info" message="${buildnumber}" />
     	
     	<exec executable="cmd.exe" >
     		<arg line="/c" />
@@ -14,6 +18,7 @@
     		<arg line="install" />
     		<arg line="-s" />
     		<arg line="settings.xml" />
+    		<arg line="-DforceContextQualifier=${buildnumber}" />
     	</exec>
     	
     </target>
