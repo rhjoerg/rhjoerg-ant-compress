@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="rhjoerg-ant-compress" default="build">
-	
-    <target name="build">
-    </target>
-
-</project>
