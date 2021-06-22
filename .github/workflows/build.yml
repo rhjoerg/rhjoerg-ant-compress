@@ -15,3 +15,12 @@ jobs:
           distribution: 'adopt'
       - name: Build with Ant
         run: ant -noinput
+      - name: Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            rhjoerg-ant-compress-plugin/target/*.jar
