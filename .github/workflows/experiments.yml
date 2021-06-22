@@ -7,5 +7,5 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Java Version
-        run: java --version
+        run: java -version
 
