@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="rhjoerg-ant-compress-parent" default="build">
 	
-	<available property="maven.exists" file="maven/bin/mvn.cmd"/>
+	<available property="maven.exists" file="target/maven/bin/mvn.cmd"/>
 	
     <target name="build" depends="maven">
     	
     	<exec executable="cmd.exe" >
     		<arg line="/c" />
-    		<arg line="maven\bin\mvn.cmd" />
-    		<arg line="clean" />
+    		<arg line="target\maven\bin\mvn.cmd" />
     		<arg line="package" />
     	</exec>
     	
@@ -16,13 +15,13 @@
 	
 	<target name="maven" unless="maven.exists">
 		
-		<mkdir dir="maven"/>
+		<mkdir dir="target/maven"/>
 		
 		<get usetimestamp="true"
 				src="https://downloads.apache.org/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.zip"
-				dest="maven/maven.zip" />
+				dest="target/maven/maven.zip" />
 		
-		<unzip dest="maven" src="maven/maven.zip">
+		<unzip dest="target/maven" src="target/maven/maven.zip">
 			<cutdirsmapper dirs="1"/>
 		</unzip>
 	</target>
