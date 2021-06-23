@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="rhjoerg_ant_compress"
+      label="rhjoerg-ant-compress"
+      version="1.5.0.qualifier">
+
+   <plugin
+         id="rhjoerg-ant-compress"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
